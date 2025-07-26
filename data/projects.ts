@@ -24,7 +24,7 @@ export interface Project {
       "Built dynamic dashboards with Redux for efficient state management",
       "Deployed with CI/CD pipelines using Docker and hosted frontend on Vercel"
     ],
-    image: "/images/projects/finmate/finmate.jpg",
+    image: "/public/images/projects/finmate/finmate.jpg",
     github: "https://github.com/jatin-sh01/FinMate.git",
     liveUrl: "https://fin-mate-lac.vercel.app/",
     featured: true

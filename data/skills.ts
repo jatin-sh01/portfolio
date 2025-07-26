@@ -1,4 +1,5 @@
 // data/skills.ts
+
 export type SkillCategory =
   | "Languages"
   | "Frameworks/Libraries"
@@ -24,16 +25,8 @@ export const skills: Record<SkillCategory, Skill[]> = {
     { name: "React.js", category: "Frameworks/Libraries", logoKey: "react" },
     { name: "Node.js", category: "Frameworks/Libraries", logoKey: "nodejs" },
     { name: "Next.js", category: "Frameworks/Libraries", logoKey: "nextjs" },
-    {
-      name: "Express.js",
-      category: "Frameworks/Libraries",
-      logoKey: "express",
-    },
-    {
-      name: "Tailwind CSS",
-      category: "Frameworks/Libraries",
-      logoKey: "tailwindcss",
-    },
+    { name: "Express.js", category: "Frameworks/Libraries", logoKey: "express" },
+    { name: "Tailwind CSS", category: "Frameworks/Libraries", logoKey: "tailwindcss" },
   ],
   "Cloud/DevOps": [
     { name: "Vercel", category: "Cloud/DevOps", logoKey: "vercel" },
@@ -43,18 +36,19 @@ export const skills: Record<SkillCategory, Skill[]> = {
     { name: "Postman", category: "Cloud/DevOps", logoKey: "postman" },
     { name: "ServerByte", category: "Cloud/DevOps", logoKey: "serverbyte" },
   ],
-
   Concepts: [
     { name: "System Design", category: "Concepts", logoKey: "github" },
-    {
-      name: "Data Structures & Algorithms",
-      category: "Concepts",
-      logoKey: "github",
-    },
+    { name: "Data Structures & Algorithms", category: "Concepts", logoKey: "github" },
     { name: "Distributed Systems", category: "Concepts", logoKey: "github" },
     { name: "API Design", category: "Concepts", logoKey: "swagger" },
     { name: "Microservices", category: "Concepts", logoKey: "docker" },
     { name: "Security", category: "Concepts", logoKey: "github" },
+  ],
+  "ML/Data": [
+    // Add tools/skills here later if needed
+  ],
+  "Blockchain/Web3": [
+    // Add tools/skills here later if needed
   ],
 };
 
