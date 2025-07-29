@@ -47,22 +47,22 @@ const achievements: Achievement[] = [
 
 export function Achievements() {
   return (
-    <section className="py-12 md:py-24 bg-muted/30 relative overflow-hidden">
-      <div className="container px-4 md:px-6 mx-auto text-center">
+    <section className="py-12 md:py-20 lg:py-24 bg-muted/30 relative overflow-hidden">
+      <div className="container px-4 sm:px-6 lg:px-8 mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
             Achievements
           </h2>
-          <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mt-4">
+          <p className="mx-auto max-w-[700px] text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl/relaxed mt-4 sm:mt-6">
             Recognition and milestones from my technical journey
           </p>
         </motion.div>
         
-        <div className="mt-12 flex flex-wrap gap-4 justify-center">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {achievements.map((achievement, index) => (
             <motion.div 
               key={index}
@@ -75,15 +75,16 @@ export function Achievements() {
                 stiffness: 100,
                 damping: 15
               }}
-              className="w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.75rem)]"
             >
-              <Card className="h-full border-2 hover:border-primary transition-all duration-300">
-                <CardContent className="p-4 flex items-center gap-3">
-                  <div className={`${achievement.colorClass} shrink-0`}>
-                    {achievement.icon}
+              <Card className="h-full border-2 hover:border-primary transition-all duration-300 group">
+                <CardContent className="p-4 sm:p-6 flex items-start gap-3 sm:gap-4">
+                  <div className={`${achievement.colorClass} shrink-0 mt-0.5`}>
+                    <div className="h-5 w-5 sm:h-6 sm:w-6">
+                      {achievement.icon}
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <p className="font-medium">{achievement.title}</p>
+                  <div className="text-left min-w-0 flex-1">
+                    <p className="font-medium text-sm sm:text-base leading-relaxed">{achievement.title}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -91,11 +92,11 @@ export function Achievements() {
           ))}
         </div>
         
-        <div className="mt-10 inline-flex flex-wrap justify-center gap-2">
-          <Badge variant="secondary" className="text-sm py-1.5 px-3">Technical Leadership</Badge>
-          <Badge variant="secondary" className="text-sm py-1.5 px-3">Problem Solver</Badge>
-          <Badge variant="secondary" className="text-sm py-1.5 px-3">Research</Badge>
-          <Badge variant="secondary" className="text-sm py-1.5 px-3">Gaming</Badge>
+        <div className="mt-8 sm:mt-10 flex flex-wrap justify-center gap-1.5 sm:gap-2">
+          <Badge variant="secondary" className="text-xs sm:text-sm py-1 sm:py-1.5 px-2 sm:px-3">Technical Leadership</Badge>
+          <Badge variant="secondary" className="text-xs sm:text-sm py-1 sm:py-1.5 px-2 sm:px-3">Problem Solver</Badge>
+          <Badge variant="secondary" className="text-xs sm:text-sm py-1 sm:py-1.5 px-2 sm:px-3">Research</Badge>
+          <Badge variant="secondary" className="text-xs sm:text-sm py-1 sm:py-1.5 px-2 sm:px-3">Gaming</Badge>
         </div>
       </div>
     </section>

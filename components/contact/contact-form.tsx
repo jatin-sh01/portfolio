@@ -145,41 +145,43 @@ export function ContactForm() {
           transition={{ duration: 0.3 }}
         >
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="john@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-sm sm:text-base">Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="John Doe" {...field} className="text-sm sm:text-base" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-sm sm:text-base">Email</FormLabel>
+                      <FormControl>
+                        <Input placeholder="john@example.com" {...field} className="text-sm sm:text-base" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
               <FormField
                 control={form.control}
                 name="subject"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Subject</FormLabel>
+                    <FormLabel className="text-sm sm:text-base">Subject</FormLabel>
                     <FormControl>
-                      <Input placeholder="Project Inquiry" {...field} />
+                      <Input placeholder="Project Inquiry" {...field} className="text-sm sm:text-base" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -190,11 +192,11 @@ export function ContactForm() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel className="text-sm sm:text-base">Message</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="I&apos;d like to discuss a project opportunity..."
-                        className="min-h-32 resize-none"
+                        className="min-h-24 sm:min-h-32 resize-none text-sm sm:text-base"
                         {...field}
                       />
                     </FormControl>
@@ -202,7 +204,7 @@ export function ContactForm() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isSubmitting} className="w-full">
+              <Button type="submit" disabled={isSubmitting} className="w-full h-10 sm:h-12 text-sm sm:text-base">
                 {isSubmitting ? (
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -210,7 +212,7 @@ export function ContactForm() {
                     className="flex items-center"
                   >
                     <span className="mr-2">Sending</span>
-                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                    <div className="h-3 w-3 sm:h-4 sm:w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -219,7 +221,7 @@ export function ContactForm() {
                     className="flex items-center"
                   >
                     Send Message
-                    <Send className="ml-2 h-4 w-4" />
+                    <Send className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                   </motion.div>
                 )}
               </Button>

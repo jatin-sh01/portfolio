@@ -31,25 +31,25 @@ export function Footer() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="container px-4 md:px-6 mx-auto"
+        className="container px-4 sm:px-6 lg:px-8 mx-auto"
       >
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* About Section */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Jatin Sharma</h3>
-            <p className="text-sm text-muted-foreground max-w-xs">
+          <div className="space-y-3 sm:space-y-4 text-center md:text-left">
+            <h3 className="text-base sm:text-lg font-bold">Jatin Sharma</h3>
+            <p className="text-xs sm:text-sm text-muted-foreground max-w-xs mx-auto md:mx-0">
               Full Stack Developer & UI/UX Enthusiast based in India, passionate about building scalable MERN applications, secure APIs, and seamless user experiences.
             </p>
           </div>
           
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Quick Links</h3>
-            <ul className="space-y-2">
+          <div className="space-y-3 sm:space-y-4 text-center md:text-left">
+            <h3 className="text-base sm:text-lg font-bold">Quick Links</h3>
+            <ul className="space-y-1 sm:space-y-2">
               <li>
                 <Link 
                   href="/about" 
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   About Me
                 </Link>
@@ -57,7 +57,7 @@ export function Footer() {
               <li>
                 <Link 
                   href="/projects" 
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Projects
                 </Link>
@@ -65,7 +65,7 @@ export function Footer() {
               <li>
                 <Link 
                   href="/blog" 
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Blog
                 </Link>
@@ -75,25 +75,25 @@ export function Footer() {
                   href="/resume.pdf" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors flex items-center justify-center md:justify-start gap-1"
                 >
-                  Resume <ExternalLink className="h-3 w-3" />
+                  Resume <ExternalLink className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
                 </a>
               </li>
             </ul>
           </div>
           
           {/* Connect */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Connect</h3>
-            <div className="flex flex-wrap gap-2">
+          <div className="space-y-3 sm:space-y-4 text-center md:text-left">
+            <h3 className="text-base sm:text-lg font-bold">Connect</h3>
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center md:justify-start">
               {socialLinks.map((social) => (
                 <Button
                   key={social.id}
                   variant="ghost"
                   size="icon"
                   asChild
-                  className="rounded-full bg-muted/50 hover:bg-primary/10"
+                  className="rounded-full bg-muted/50 hover:bg-primary/10 h-8 w-8 sm:h-10 sm:w-10"
                 >
                   <a 
                     href={social.url} 

@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Download,
@@ -23,11 +23,6 @@ export function Hero() {
     "UI/UX Design",
     "Agile & CI/CD",
   ];
-
-  // Parallax effect setup
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 150]); // Text moves slower
-  const y2 = useTransform(scrollY, [0, 500], [0, 250]); // Image moves faster
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,28 +52,24 @@ export function Hero() {
 
   return (
     <section className="relative py-12 md:py-24 overflow-hidden">
-      {/* Background elements with parallax effect */}
-      <motion.div
-        className="absolute inset-0 -z-10"
-        style={{ y: useTransform(scrollY, [0, 1000], [0, 300]) }}
-      >
+      {/* Background elements - removed parallax to fix scrolling issues */}
+      <div className="absolute inset-0 -z-10">
         <div className="absolute right-0 top-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl opacity-70" />
         <div className="absolute left-20 bottom-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl opacity-60" />
-      </motion.div>
+      </div>
 
-      <div className="container px-4 md:px-6 mx-auto">
-        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+      <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
+        <div className="grid gap-8 lg:grid-cols-[1fr_350px] lg:gap-12 xl:grid-cols-[1fr_450px] 2xl:grid-cols-[1fr_500px]">
           <motion.div
-            className="flex flex-col justify-center space-y-4"
-            style={{ y: y1 }}
+            className="flex flex-col justify-center space-y-6 order-2 lg:order-1"
           >
-            <div className="space-y-2">
+            <div className="space-y-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl/none">
                   Hi, I&apos;m Jatin Sharma
                 </h1>
               </motion.div>
@@ -86,7 +77,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="h-12"
+                className="h-12 sm:h-14 md:h-16"
               >
                 <div className="relative overflow-hidden h-full flex items-center">
                   {displayedSkills.map((skill, index) => (
@@ -98,7 +89,7 @@ export function Hero() {
                           : "translate-y-8 opacity-0"
                       }`}
                     >
-                      <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
+                      <h2 className="text-xl font-semibold text-primary sm:text-2xl md:text-3xl lg:text-4xl">
                         {skill}
                       </h2>
                     </div>
@@ -109,7 +100,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="max-w-[600px] text-muted-foreground md:text-xl"
+                className="max-w-[600px] text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
               >
                 A passionate developer with expertise in Next.js, React,
                 Tailwind CSS, and . Currently pursuing Bachelor's degree in
@@ -122,15 +113,15 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap gap-3"
+              className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
             >
-              <Button asChild size="lg" className="group">
+              <Button asChild size="lg" className="group w-full sm:w-auto">
                 <a href="#projects">
                   View My Work
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild className="w-full sm:w-auto">
                 <a
                   href="/resume.pdf"
                   download="Jatin_Sharma_Resume.pdf"
@@ -148,7 +139,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex gap-3 pt-2"
+              className="flex gap-3 pt-2 justify-center sm:justify-start"
             >
               {socialLinks.map((social) => (
                 <motion.div
@@ -177,20 +168,19 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="flex items-center justify-center"
-            style={{ y: y2 }}
+            className="flex items-center justify-center order-1 lg:order-2"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-full">
+            <div className="relative aspect-square w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-md overflow-hidden rounded-full">
               <Image
                 src="/images/profile.jpg"
                 alt="Jatin Sharma"
                 fill
                 className="object-cover"
                 priority
-                sizes="(max-width: 768px) 100vw, 400px"
+                sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, (max-width: 1024px) 380px, 400px"
               />
             </div>
           </motion.div>

@@ -135,17 +135,17 @@ export function Navbar() {
             animate="visible"
             exit="exit"
             className={cn(
-              "fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-300 rounded-xl py-3 px-4",
+              "fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-300 rounded-xl py-2 sm:py-3 px-3 sm:px-4",
               isScrolled ? isScrolledBgClass : notScrolledBgClass
             )}
           >
             <ThreeDCard className="w-full">
               <div className="flex items-center justify-between">
-                {/* Logo with fixed width */}
-                <div className="w-[160px]">
+                {/* Logo with responsive width */}
+                <div className="w-[120px] sm:w-[160px]">
                   <Link 
                     href="/"
-                    className="font-display text-xl font-bold transition-colors hover:text-primary"
+                    className="font-display text-lg sm:text-xl font-bold transition-colors hover:text-primary"
                   >
                     <motion.span
                       initial={{ opacity: 0, x: -20 }}
@@ -157,9 +157,9 @@ export function Navbar() {
                   </Link>
                 </div>
 
-                {/* Desktop Navigation - Centered */}
+                {/* Desktop Navigation - Centered with responsive spacing */}
                 <div className="hidden md:flex justify-center flex-1">
-                  <nav className="flex items-center gap-1">
+                  <nav className="flex items-center gap-0.5 lg:gap-1">
                     {navItems.map((item, i) => (
                       <motion.div
                         key={item.href}
@@ -173,7 +173,7 @@ export function Navbar() {
                         <Link
                           href={item.href}
                           className={cn(
-                            "px-4 py-2 rounded-md text-sm font-medium transition-all hover:text-primary hover:bg-muted/50 variable-font",
+                            "px-2 lg:px-4 py-2 rounded-md text-xs lg:text-sm font-medium transition-all hover:text-primary hover:bg-muted/50 variable-font",
                             activeSection === item.href
                               ? "text-primary bg-muted/60 font-variation-settings: 'wght' 600"
                               : "text-muted-foreground"
@@ -187,8 +187,8 @@ export function Navbar() {
                   </nav>
                 </div>
                 
-                {/* Theme toggle - Right aligned with fixed width */}
-                <div className="w-[160px] flex justify-end">
+                {/* Theme toggle - Right aligned with responsive width */}
+                <div className="w-[120px] sm:w-[160px] flex justify-end">
                   <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -198,13 +198,13 @@ export function Navbar() {
                   </motion.div>
                 </div>
 
-                {/* Mobile Navigation */}
+                {/* Mobile Navigation with responsive margin */}
                 <Sheet>
                   <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5, type: "spring" }}
-                    className="md:hidden ml-4" 
+                    className="md:hidden ml-2 sm:ml-4" 
                   >
                     <SheetTrigger asChild>
                       <Button variant="ghost" size="icon" className="rounded-full bg-muted/50">

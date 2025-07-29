@@ -16,13 +16,13 @@ export function SectionHeader({ title, subtitle, centered = true }: SectionHeade
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className={`space-y-4 ${centered ? 'text-center mx-auto' : ''} mb-12`}
+      className={`space-y-4 sm:space-y-6 ${centered ? 'text-center mx-auto' : ''} mb-8 sm:mb-12`}
     >
-      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+      <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
+        <p className="max-w-[700px] text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl/relaxed mx-auto">
           {subtitle}
         </p>
       )}

@@ -19,65 +19,66 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="h-full flex flex-col overflow-hidden border-2 transition-all hover:border-primary">
-    {project.image && (
+    <Card className="h-full flex flex-col overflow-hidden border-2 transition-all hover:border-primary group">
+      {project.image && (
         <div className="aspect-video overflow-hidden relative w-full">
-            <Image
+          <Image
             src={project.image}
             alt={project.title}
-            className="object-cover object-top"
+            className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             priority={project.featured}
-            />
+          />
         </div>
-        )}
-      <CardHeader>
-        <CardTitle>{project.title}</CardTitle>
-        <CardDescription>{project.description}</CardDescription>
+      )}
+      <CardHeader className="p-4 sm:p-6">
+        <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
+        <CardDescription className="text-sm sm:text-base">{project.description}</CardDescription>
       </CardHeader>
-      <CardContent className="flex-1">
-        <div className="flex flex-wrap gap-2 mb-4">
+      <CardContent className="flex-1 p-4 sm:p-6 pt-0">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
           {project.technologies.slice(0, 4).map((tech) => (
-            <Badge key={tech} variant="secondary">
+            <Badge key={tech} variant="secondary" className="text-xs sm:text-sm">
               {tech}
             </Badge>
           ))}
           {project.technologies.length > 4 && (
-            <Badge variant="outline">+{project.technologies.length - 4}</Badge>
+            <Badge variant="outline" className="text-xs sm:text-sm">+{project.technologies.length - 4}</Badge>
           )}
         </div>
-        <ul className="space-y-2 text-sm text-muted-foreground">
+        <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
           {project.achievements.slice(0, 2).map((achievement, i) => (
             <li key={i} className="flex items-start">
-              <ArrowRight className="mr-2 h-4 w-4 text-primary mt-0.5 shrink-0" />
+              <ArrowRight className="mr-2 h-3 w-3 sm:h-4 sm:w-4 text-primary mt-0.5 shrink-0" />
               <span>{achievement}</span>
             </li>
           ))}
         </ul>
       </CardContent>
-      <CardFooter className="flex gap-2">
-        <Button asChild variant="default" size="sm">
+      <CardFooter className="flex gap-2 p-4 sm:p-6 pt-0">
+        <Button asChild variant="default" size="sm" className="flex-1 sm:flex-initial text-xs sm:text-sm">
           <Link href={`/projects/${project.id}`}>
             View Details
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <ArrowRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
           </Link>
         </Button>
-        <div className="flex-1"></div>
-        {project.github && (
-          <Button asChild variant="ghost" size="icon">
-            <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <Github className="h-4 w-4" />
-            </a>
-          </Button>
-        )}
-        {project.liveUrl && (
-          <Button asChild variant="ghost" size="icon">
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
-              <ExternalLink className="h-4 w-4" />
-            </a>
-          </Button>
-        )}
+        <div className="flex gap-1 sm:gap-2">
+          {project.github && (
+            <Button asChild variant="ghost" size="icon" className="h-8 w-8 sm:h-10 sm:w-10">
+              <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github className="h-3 w-3 sm:h-4 sm:w-4" />
+              </a>
+            </Button>
+          )}
+          {project.liveUrl && (
+            <Button asChild variant="ghost" size="icon" className="h-8 w-8 sm:h-10 sm:w-10">
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
+                <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
+              </a>
+            </Button>
+          )}
+        </div>
       </CardFooter>
     </Card>
   );

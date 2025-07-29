@@ -216,3 +216,52 @@ html {
 .variable-font:hover {
   font-variation-settings: 'wght' 600;
 }
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+  button, a[role="button"], .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Improve readability on small screens */
+@media (max-width: 640px) {
+  h1 {
+    line-height: 1.2;
+  }
+  
+  h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Better responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
