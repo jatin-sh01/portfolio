@@ -265,3 +265,43 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Skills section specific responsive improvements */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .skill-badge {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tab navigation improvements for mobile */
+@media (max-width: 640px) {
+  .tabs-trigger {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Better touch interaction */
+@media (hover: none) and (pointer: coarse) {
+  .skill-badge:hover {
+    transform: none;
+    scale: 1;
+  }
+  
+  .skill-badge:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
