@@ -13,6 +13,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 const StarsCanvas = dynamic(() => import("@/components/star-background").then(mod => mod.StarsCanvas), { ssr: false });
 const BlackHoleVideo = dynamic(() => import("@/components/black-hole-video").then(mod => mod.BlackHoleVideo), { ssr: false });
@@ -87,6 +88,19 @@ export function ClientLayout({
             <ScrollProgress />
             <SpeedInsights/>
             <Analytics />
+            {/* Simple Analytics - 100% privacy-first analytics */}
+            <Script
+              src="https://scripts.simpleanalyticscdn.com/latest.js"
+              strategy="afterInteractive"
+              data-collect-dnt="true"
+            />
+            <noscript>
+              <img
+                src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true"
+                alt=""
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </noscript>
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>
